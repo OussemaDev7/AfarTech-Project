@@ -1,0 +1,40 @@
+flutter_native_splash:
+  # Required: Background color (black for dark/clear contrast)
+  color: "#000000"
+  # background_image: "assets/background.png"  # Optional: Use a black gradient PNG if needed for texture
+
+  # Your personal image/logo (relative path for reliability)
+  image: C:/AfarTech Project/assets/splash_screen_logo1 (2).png  # Moved to relative; ensures bigger via fill
+
+  # Optional: Branding (e.g., text/logo below main image)
+  # branding: assets/branding.png
+  # branding_mode: bottom
+
+  # Dark mode (optional—defaults to light settings if not set)
+  # color_dark: "#000000"  # Keep black in dark mode
+  # image_dark: assets/app_logo1_dark.png  # Optional: Brighter variant for dark mode
+
+  # Android 12+ specific (icon clipped to circle on black bg)
+  android_12:
+    image: C:/AfarTech Project/assets/splash_screen_logo1 (2).png  # Relative path; high-res for bigger/clearer circle
+    color: "#000000"
+    # icon_background_color: "#000000"  # Matches bg for seamless
+
+    # Dark mode for Android 12
+    # image_dark: assets/app_logo1_dark.png
+    # color_dark: "#000000"
+
+  # Platform enables
+  android: true
+  ios: true
+  web: false
+
+  # Positioning for bigger/full coverage (stretches to max size)
+  android_gravity: fill  # Stretches bigger across full screen
+  ios_content_mode: scaleToFill  # Stretches to biggest possible (full bounds, may distort slightly)
+
+  # Fullscreen (hides status/notification bar for clean display)
+  fullscreen: true
+
+  # Overrides (optional)
+  # image_android: assets/app_logo1_android.png  # Platform-specific if needed
