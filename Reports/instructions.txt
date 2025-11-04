@@ -1,4 +1,4 @@
-adb reverse tcp:8081 tcp:8081
+C:\Users\venos\AppData\Local\Android\Sdk\platform-tools>adb reverse tcp:8081 tcp:8081
 flutter clean
 flutter run
 http://localhost:8081/api/...

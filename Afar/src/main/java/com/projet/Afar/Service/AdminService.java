@@ -1,6 +1,7 @@
 package com.projet.Afar.Service;
 
 import com.projet.Afar.Entity.Admin;
+import com.projet.Afar.Entity.Notification;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,4 +12,6 @@ public interface AdminService {
     List<Admin> ShowAdmin();
     Optional<Admin> ShowAdminById(Long id);
     void DeleteAdmin(Long id);
+    List<Notification> getNotificationsByAdminId(Long id);
+
 }

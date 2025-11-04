@@ -1,5 +1,6 @@
 package com.projet.Afar.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -19,8 +20,11 @@ public class Admin {
     private Date createdAt;
     private Date updatedAt;
     private Date lastLogin;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String image;
-    @OneToMany
+    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // Serialize notifications when Admin is the root
     private List<Notification> notifications;
 
     public Long getId() {

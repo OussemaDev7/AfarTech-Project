@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.deepPurple, Colors.purpleAccent],
+            colors: [Color.fromARGB(255, 122, 30, 2), Color.fromARGB(255, 0, 0, 0)],
           ),
         ),
         child: SafeArea(
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const Icon(
                         Icons.admin_panel_settings,
                         size: 80,
-                        color: Colors.deepPurple,
+                        color: Color.fromARGB(255, 122, 30, 2),
                       ),
                       const SizedBox(height: 16),
                       const Text(
@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: _isLoading ? null : _login,
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                            backgroundColor: Colors.deepPurple,
+                            backgroundColor: Color.fromARGB(255, 122, 30, 2),
                           ),
                           child: _isLoading
                               ? const SizedBox(
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   width: 20,
                                   child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
                                 )
-                              : const Text('Login', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                              : const Text('Login', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,  color: Colors.white)),
                         ),
                       ),
                       if (_generalMessage.isNotEmpty) ...[

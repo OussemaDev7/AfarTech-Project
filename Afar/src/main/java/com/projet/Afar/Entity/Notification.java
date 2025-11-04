@@ -1,9 +1,7 @@
 package com.projet.Afar.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -14,9 +12,13 @@ public class Notification {
     private Long id;
     private String title;
     private String description;
-    private String receiverId;
+
     private String type;
     private Date sentAt;
+    @ManyToOne
+    @JoinColumn(name = "receiver_id")
+    @JsonBackReference // Prevent serializing Admin when Notification is the root
+    private Admin receiver;
 
     public Long getId() {
         return id;
@@ -42,13 +44,7 @@ public class Notification {
         this.description = description;
     }
 
-    public String getReceiverId() {
-        return receiverId;
-    }
 
-    public void setReceiverId(String receiverId) {
-        this.receiverId = receiverId;
-    }
 
     public String getType() {
         return type;
@@ -64,5 +60,14 @@ public class Notification {
 
     public void setSentAt(Date sentAt) {
         this.sentAt = sentAt;
+    }
+
+
+    public Admin getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(Admin receiver) {
+        this.receiver = receiver;
     }
 }

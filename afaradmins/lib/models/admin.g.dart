@@ -13,15 +13,9 @@ Admin _$AdminFromJson(Map<String, dynamic> json) => Admin(
   email: json['email'] as String?,
   password: json['password'] as String?,
   role: json['role'] as String?,
-  createdAt: json['createdAt'] == null
-      ? null
-      : DateTime.parse(json['createdAt'] as String),
-  updatedAt: json['updatedAt'] == null
-      ? null
-      : DateTime.parse(json['updatedAt'] as String),
-  lastLogin: json['lastLogin'] == null
-      ? null
-      : DateTime.parse(json['lastLogin'] as String),
+  createdAt: Admin._dateTimeFromJson(json['createdAt']),
+  updatedAt: Admin._dateTimeFromJson(json['updatedAt']),
+  lastLogin: Admin._dateTimeFromJson(json['lastLogin']),
   image: json['image'] as String?,
   notifications: (json['notifications'] as List<dynamic>?)
       ?.map((e) => Notification.fromJson(e as Map<String, dynamic>))
@@ -35,9 +29,9 @@ Map<String, dynamic> _$AdminToJson(Admin instance) => <String, dynamic>{
   'email': instance.email,
   'password': instance.password,
   'role': instance.role,
-  'createdAt': instance.createdAt?.toIso8601String(),
-  'updatedAt': instance.updatedAt?.toIso8601String(),
-  'lastLogin': instance.lastLogin?.toIso8601String(),
+  'createdAt': ?Admin._dateTimeToJson(instance.createdAt),
+  'updatedAt': ?Admin._dateTimeToJson(instance.updatedAt),
+  'lastLogin': ?Admin._dateTimeToJson(instance.lastLogin),
   'image': instance.image,
-  'notifications': instance.notifications,
+  'notifications': instance.notifications?.map((e) => e.toJson()).toList(),
 };

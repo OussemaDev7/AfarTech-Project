@@ -1,3 +1,5 @@
+import 'package:afaradmins/screens/add_admin.dart';
+import 'package:afaradmins/screens/list_admins.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Afar Admin Application',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -36,7 +39,9 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           home: const LoginScreen(),
           routes: {
-            '/home': (context) => const AdminHomeScreen(),
+            '/home': (context) => AdminHomeScreen(),
+            '/admins': (context) => ListAdminsScreen(),
+            '/add-admin': (context) => AddAdminScreen(),
           },
         );
       },
